@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#cats-container, #female-cats-container, #male-cats-container {
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+
+#female-cats-container, #male-cats-container {
+    width: calc(50% - 40px);
+    float: left;
+}

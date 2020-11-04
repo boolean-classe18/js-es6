@@ -48,7 +48,7 @@ block scoping e variabili
 console.log(miaFunzione());
 
 function miaFunzione() {
-    let numero = Math.floor(Math.random() * 10);
+    var numero = Math.floor(Math.random() * 10);
     if(numero % 2 == 0) {
         let pari = true;
     } else {
@@ -174,6 +174,8 @@ operatore spread con oggetti
 const oggetto1 = {nome: 'palla', peso: 50};
 const oggetto2 = {...oggetto1, colore: 'blu'};
 console.log(oggetto2); // {nome: "palla", peso: 50, colore: "blu"}
+const oggetto3 = {...oggetto2, prezzo: 2}
+console.log(oggetto3); // {nome: "palla", peso: 50, colore: "blu", prezzo: 2}
 
 
 /*
@@ -190,7 +192,7 @@ let studente1 = {
     cognome,
     eta
 };
-console.log(studente1);
+console.log(studente1); // {nome: "Mario", cognome: "Rossi", eta: 30}
 
 
 /*
@@ -206,4 +208,4 @@ let studente2 = {
     eta: 29,
     [nome_proprieta]: 'luigi.verdi@gmail.com'
 };
-console.log(studente2);
+console.log(studente2); // {nome: "Luigi", cognome: "Verdi", eta: 29, email: "luigi.verdi@gmail.com"}
