@@ -4,7 +4,13 @@
     box-sizing: border-box;
 }
 
-#cats-container, #female-cats-container, #male-cats-container {
+.container::after {
+    clear: both;
+    display: table;
+    content: '';
+}
+
+#cats-container, #female-cats-container, #male-cats-container, #final-cats-container {
     border: 1px solid black;
     margin: 20px;
     padding: 20px;

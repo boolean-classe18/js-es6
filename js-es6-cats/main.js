@@ -52,7 +52,7 @@ cats.forEach((cat) => {
         opacity: ribbon_opacity
     };
 
-    console.log(cat);
+    // console.log(cat);
 
     // stampo tutti i gatti in pagina
     $('#cats-container').append(`
@@ -67,7 +67,7 @@ cats.forEach((cat) => {
 // estraggo da tutti i gatti solo quelli femmina
 const female_cats = cats.filter((cat) => {
     // cat è un oggetto e rappresenta l'elemento corrente
-    console.log(cat);
+    // console.log(cat);
     // devo restituire true per copiare l'elemento nel nuovo array
     // false per scartarlo
     /*
@@ -81,7 +81,7 @@ const female_cats = cats.filter((cat) => {
 });
 // equivalente a:
 // const female_cats = cats.filter((cat) => cat.gender == 'female');
-console.log(female_cats);
+// console.log(female_cats);
 
 // stampo tutti i gatti femmina nel contenitore apposito
 female_cats.forEach((cat) => {
@@ -97,7 +97,7 @@ const male_cats = cats.filter((cat) => {
     // cat è un oggetto e rappresenta l'elemento corrente
     return cat.gender == 'male';
 });
-console.log(male_cats);
+// console.log(male_cats);
 
 // stampo tutti i gatti maschio nel contenitore apposito
 male_cats.forEach((cat) => {
@@ -107,11 +107,33 @@ male_cats.forEach((cat) => {
     print_cat(cat, male_container);
 });
 
+// costruisco un nuovo array con prima i gatti femmina e poi i gatti maschio
+const ordered_cats = [...female_cats, ...male_cats];
+console.log(ordered_cats);
+
+// per ogni gatto recupero solamente nome, colore e fiocco
+const final_cats = ordered_cats.map((cat) => {
+    console.log(cat);
+    // destrutturo l'oggetto corrente e recupero nome, colore e fiocco
+    const {name, color, ribbon} = cat;
+    // costruisco un oggetto nuovo per il gatto corrente con le chiavi richieste
+    const new_cat = {
+        name,
+        color,
+        ribbon
+    };
+    return new_cat;
+});
+console.log(final_cats);
+
+// stampo tutti i gatti ordinati
+final_cats.forEach((cat) => print_cat(cat, $('#final-cats-container')));
+
 // funzione che stampa un gatto in un contenitore
 function print_cat(cat_object, container) {
     // destrutturo l'oggetto cat per estrarre le chiavi name, color e ribbon
     let {name, color, ribbon} = cat_object;
-    
+
     container.append(`
         <div style="color: ${color}">
             <i class="fas fa-2x fa-cat"></i>
